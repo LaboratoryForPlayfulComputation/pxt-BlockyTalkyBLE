@@ -1,6 +1,6 @@
 {
     "name": "blocklytalkyble-dal",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A key-value pair Bluetooth service for BlocklyTalky",
     "dependencies": {
         "core": "*",
