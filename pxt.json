@@ -1,0 +1,22 @@
+{
+    "name": "blocklytalkyble-dal",
+    "version": "0.0.0",
+    "description": "A key-value pair Bluetooth service for BlocklyTalky",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "README.md",
+        "KeyValueService.cpp",
+        "KeyValueService.h",
+        "main.ts",
+        "enums.d.ts",
+        "shims.d.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": false,
+    "license": "MIT"
+}
