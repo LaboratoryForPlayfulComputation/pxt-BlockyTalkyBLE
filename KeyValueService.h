@@ -16,8 +16,8 @@ extern const uint8_t  KeyValueTxCharacteristicUUID[];
 
 // 32 bytes
 struct KeyValueMessage {
-  char key[BLOCKLYTALKY_KV_KEY_LENGTH];
-  uint16_t type; // keep things aligned
+  char key[BLOCKLYTALKY_KV_KEY_LENGTH + 1];
+  uint8_t type;
   uint8_t value[BLOCKLYTALKY_KV_VALUE_LENGTH];
 };
 

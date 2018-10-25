@@ -8,7 +8,9 @@ enum BlocklyTalkyMessageType {
 };
 
 namespace blocklytalky {
-
+    const BLOCKLYTALKY_KV_KEY_LENGTH = 14;
+    const BLOCKLYTALKY_KV_VALUE_LENGTH = 16;
+    
     /**
     * Starts a custom sensor service. The handler must call ``setSensorTemperature`` 
     * to update the temperature sent to the service.

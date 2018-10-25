@@ -34,11 +34,15 @@ KeyValueService::KeyValueService(BLEDevice &_ble) :
 void KeyValueService::send(String key, int type, Buffer value) {
     if (ble.getGapState().connected)
     {
+        // clear buffer
         memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
-        int keyn = min(BLOCKLYTALKY_KV_KEY_LENGTH - 1, key->length);
-        memcpy(&txCharacteristicMessage.key, key->data, keyn);
+        // write key, last byte left and end-of-string marker
+        memcpy(&txCharacteristicMessage.key, key->data, min(BLOCKLYTALKY_KV_KEY_LENGTH, key->length));
+        // write data type
         txCharacteristicMessage.type = type;
+        // write value
         memcpy(&txCharacteristicMessage.value, value->data, min(BLOCKLYTALKY_KV_VALUE_LENGTH, value->length));
+        // notify clients
         ble.gattServer().notify(txCharacteristicHandle,(uint8_t *)&txCharacteristicMessage, sizeof(txCharacteristicMessage));
     }
 }
