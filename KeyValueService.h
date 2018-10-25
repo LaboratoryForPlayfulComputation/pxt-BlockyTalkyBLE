@@ -11,19 +11,19 @@
 #define BLOCKLYTALKY_KV_RECEIVED_NUMBER 1
 #define BLOCKLYTALKY_KV_RECEIVED_STRING 2
 
-#define BLOCKLYTALKY_KV_KEY_LENGTH 14
-#define BLOCKLYTALKY_KV_VALUE_LENGTH 16
+#define BLOCKLYTALKY_KV_KEY_LENGTH 6
+#define BLOCKLYTALKY_KV_VALUE_LENGTH 12
 
 // UUIDs for our service and characteristics
 extern const uint8_t  KeyValueServiceUUID[];
 extern const uint8_t  KeyValueTxCharacteristicUUID[];
 extern const uint8_t  KeyValueRxCharacteristicUUID[];
 
-// 32 bytes
+// 20 bytes
 struct KeyValueMessage {
-  char key[BLOCKLYTALKY_KV_KEY_LENGTH + 1];
-  uint8_t type;
-  uint8_t value[BLOCKLYTALKY_KV_VALUE_LENGTH];
+  char key[BLOCKLYTALKY_KV_KEY_LENGTH + 1]; // 7
+  uint8_t type; // 1
+  uint8_t value[BLOCKLYTALKY_KV_VALUE_LENGTH]; // 12
 };
 
 

@@ -19,7 +19,7 @@ blocklytalky.sendNumber("temp", input.temperature())
 
 ### ~ hint
 
-The ``key`` part of the message should be less than 14 character long
+The ``key`` part of the message should be less or equal than 6 character long
 
 ### ~
 
@@ -31,7 +31,7 @@ blocklytalky.sendString("marco", "polo")
 
 ### ~ hint
 
-The ``value`` part of the message should be less than 14 character long
+The ``value`` part of the message should be less than 11 character long
 
 ### ~
 
