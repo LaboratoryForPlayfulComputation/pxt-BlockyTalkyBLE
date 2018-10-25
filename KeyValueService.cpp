@@ -31,8 +31,15 @@ KeyValueService::KeyValueService(BLEDevice &_ble) :
     ble.onDataWritten(this, &KeyValueService::onDataWritten);
 }
 
-void KeyValueService::send(String key, uint8_t type, Buffer value) {
-
+void KeyValueService::send(String key, uint16_t type, Buffer value) {
+    if (ble.getGapState().connected)
+    {
+        memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
+        memcpy(&txCharacteristicMessage.key, key->data, min(BLOCKLYTALKY_KV_KEY_LENGTH, key->length));
+        txCharacteristicMessage.type = type;
+        memcpy(&txCharacteristicMessage.value, value->data, min(BLOCKLYTALKY_KV_VALUE_LENGTH, value->length));
+        ble.gattServer().notify(txCharacteristicHandle,(uint8_t *)&txCharacteristicMessage, sizeof(txCharacteristicMessage));
+    }
 }
 
 /**

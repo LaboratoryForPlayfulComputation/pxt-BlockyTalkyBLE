@@ -40,7 +40,7 @@ class KeyValueService
     /**
     * Sends a key value pair
     */
-    void send(String key, uint8_t type, Buffer value);
+    void send(String key, uint16_t type, Buffer value);
 
     private:
 
