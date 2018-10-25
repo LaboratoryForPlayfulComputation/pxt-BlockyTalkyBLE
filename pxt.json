@@ -4,7 +4,7 @@
     "description": "A key-value pair Bluetooth service for BlocklyTalky",
     "dependencies": {
         "core": "*",
-        "radio": "*"
+        "bluetooth": "*"
     },
     "files": [
         "README.md",

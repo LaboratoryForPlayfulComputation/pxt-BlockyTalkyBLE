@@ -9,22 +9,14 @@ enum BlocklyTalkyType {
 namespace blocklytalky {
     KeyValueService* _pService = NULL;
 
-    /**
-    * Starts a custom sensor service. The handler must call ``setSensorTemperature`` 
-    * to update the temperature sent to the service.
-    */
-    //% blockId=blekey_startService block="start bluetooth service"
-    //% blockHidden=1
+    //%
     void startBluetoothService() {
         if (NULL != _pService) return;
 
         _pService = new KeyValueService(*uBit.ble);
     }
 
-    /**
-    * Sets the current temperature value on the external temperature sensor
-    */
-    //% blockId=bluetooth_setTemperatureSensorValue block="blocklytalky send key $key|type $type|value $value"
+    //%
     void sendMessage(String key, BlocklyTalkyType type, Buffer value) {
         startBluetoothService();
         _pService->send(key, type, value);
