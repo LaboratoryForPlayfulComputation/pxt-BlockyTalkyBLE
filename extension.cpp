@@ -1,11 +1,6 @@
 #include "pxt.h"
 #include "KeyValueService.h"
 
-enum BlocklyTalkyType {
-    //%
-    Int
-};
-
 namespace blocklytalky {
     KeyValueService* _pService = NULL;
 
@@ -17,7 +12,7 @@ namespace blocklytalky {
     }
 
     //%
-    void sendMessage(String key, BlocklyTalkyType type, Buffer value) {
+    void sendMessage(String key, int type, Buffer value) {
         startBluetoothService();
         _pService->send(key, type, value);
     }
