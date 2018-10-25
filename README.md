@@ -41,6 +41,13 @@ The ``value`` part of the message should be less than 11 character long
 * TX Characteristic: 0b78ac2dfe3643ac32d0a29d8fbe05d7
 * RX Characteristic: 0b78ac2dfe3643ac32d0a29d8fbe05d8
 
+## Testing
+
+Try this glitch in a WebBluetooth enabled browser
+
+    https://microbit-blocklytalky.glitch.me
+
+
 ## License
 
 MIT
