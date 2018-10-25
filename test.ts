@@ -6,5 +6,7 @@ bluetooth.onBluetoothConnected(function () {
     basic.showIcon(IconNames.Sad);
 })
 basic.forever(function () {
+    led.toggle(0, 0);
     blocklytalky.sendNumber("number", Math.randomRange(1, 10));
+    basic.pause(500);
 })

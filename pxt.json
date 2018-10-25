@@ -19,5 +19,14 @@
         "test.ts"
     ],
     "public": false,
-    "license": "MIT"
+    "license": "MIT",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1
+                }
+            }
+        }
+    }        
 }
