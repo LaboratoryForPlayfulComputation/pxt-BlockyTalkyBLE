@@ -14,6 +14,7 @@ namespace blocklytalky {
     * to update the temperature sent to the service.
     */
     //% blockId=blekey_startService block="start bluetooth service"
+    //% blockHidden=1
     void startBluetoothService() {
         if (NULL != _pService) return;
 
@@ -25,8 +26,7 @@ namespace blocklytalky {
     */
     //% blockId=bluetooth_setTemperatureSensorValue block="blocklytalky send key $key|type $type|value $value"
     void sendMessage(String key, BlocklyTalkyType type, Buffer value) {
-        if (NULL == _pService) return;
-
+        startBluetoothService();
         _pService->send(key, type, value);
     }
 }
