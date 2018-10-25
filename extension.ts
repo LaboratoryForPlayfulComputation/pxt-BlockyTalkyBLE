@@ -1,3 +1,7 @@
+/**
+ * A Bluetooth service for BlocklyTalky applications
+ */
+//% color=#007EF4 weight=95 icon="\uf294"
 namespace blocklytalky {
     const BLOCKLYTALKY_KV_ID = 9600;
     const BLOCKLYTALKY_KV_RECEIVED_NUMBER = 1;
@@ -71,7 +75,7 @@ namespace blocklytalky {
      * @param key 
      * @param value 
      */
-    //% blockid="blocklytalkey_sendnumber" block="blocklytalky send number $key as $value"
+    //% blockid="blocklytalkey_sendnumber" block="blocklytalky send string $key as $value"
     export function sendString(key: string, value: string) {
         const buf = pins.createBuffer(value.length + 1);
         for (let i = 0; i < value.length; ++i)
@@ -85,7 +89,7 @@ namespace blocklytalky {
      */
     //% blockHandlerKey="blocklytalkyreceived"
     //% blockId=blocklytalky_on_number block="on blocklytalky received" blockGap=16
-    export function onReceivedNumber(cb: (name: string, value: number) => void) {
+    export function onReceivedNumber(cb: (key: string, value: number) => void) {
         control.onEvent(BLOCKLYTALKY_KV_ID, BLOCKLYTALKY_KV_RECEIVED_NUMBER, function () {
             const key = receivedKey();
             const type = receivedType();
@@ -102,8 +106,8 @@ namespace blocklytalky {
     /**
      * Registers code to run when the blocklytalky receives a string.
      */
-    //% blockId=blocklytalky_on_number block="on blocklytalky received" blockGap=16
-    export function onReceivedString(cb: (name: string, value: string) => void) {
+    //% blockId=blocklytalky_on_string block="on blocklytalky received" blockGap=16
+    export function onReceivedString(cb: (key: string, receivedString: string) => void) {
         control.onEvent(BLOCKLYTALKY_KV_ID, BLOCKLYTALKY_KV_RECEIVED_STRING, function () {
             const key = receivedKey();
             const value = receivedString();
