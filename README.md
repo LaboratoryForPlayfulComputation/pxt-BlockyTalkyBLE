@@ -1,17 +1,12 @@
-# bluetooth-kv
+# blocklytalkyble-dal
 
-A key-value pair Bluetooth service
+A key-value pair Bluetooth service for BlocklyTalky
 
-## TODO
+## Bluetooth Profile
 
-- [ ] Add a reference for your blocks here
-- [ ] Add "icon.png" image (300x200) in the root folder
-- [ ] Add "- beta" to the GitHub project description if you are still iterating it.
-- [ ] Turn on your automated build on https://travis-ci.org
-- [ ] Use "pxt bump" to create a tagged release on GitHub
-- [ ] Get your package reviewed and approved https://makecode.microbit.org/packages/approval
-
-Read more at https://makecode.microbit.org/packages/build-your-own
+* Service UUID: 0b78ac2dfe3643ac32d0a29d8fbe05d6
+* TX Characteristic: 0b78ac2dfe3643ac32d0a29d8fbe05d7
+* RX Characteristic: 0b78ac2dfe3643ac32d0a29d8fbe05d8
 
 ## License
 
