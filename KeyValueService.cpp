@@ -1,5 +1,6 @@
 #include "MicroBitConfig.h"
 #include "ble/UUID.h"
+#include "pxt.h"
 
 #include "KeyValueService.h"
 
@@ -7,11 +8,11 @@ KeyValueService::KeyValueService(BLEDevice &_ble) :
         ble(_ble)
 {
     // Create the data structures that represent each of our characteristics in Soft Device.
-    GattCharacteristic  txCharacteristic(KeyValueTxUUID, (uint8_t *)&txCharacteristicBuffer, 0,
-    sizeof(txCharacteristicBuffer), GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_READ | GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_WRITE);
+    GattCharacteristic  txCharacteristic(KeyValueTxCharacteristicUUID, (uint8_t *)&txCharacteristicMessage, 0,
+    sizeof(txCharacteristicMessage), GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_READ | GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_WRITE);
 
     // Initialise our characteristic values.
-    memset(txCharacteristicBuffer, 0, sizeof(MICROBIT_KEY_VALUE_TX_LENGTH));
+    memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
 
     // Set default security requirements
     txCharacteristic.requireSecurity(SecurityManager::MICROBIT_BLE_SECURITY_LEVEL);
@@ -25,7 +26,7 @@ KeyValueService::KeyValueService(BLEDevice &_ble) :
     txCharacteristicHandle = txCharacteristic.getValueHandle();
 
     // initialize data
-    ble.gattServer().write(txCharacteristicHandle,(uint8_t *)&txCharacteristicBuffer, sizeof(txCharacteristicBuffer));
+    ble.gattServer().write(txCharacteristicHandle,(uint8_t *)&txCharacteristicMessage, sizeof(txCharacteristicMessage));
 
     ble.onDataWritten(this, &KeyValueService::onDataWritten);
 }

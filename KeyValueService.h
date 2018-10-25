@@ -6,15 +6,20 @@
 #include "MicroBitThermometer.h"
 #include "EventModel.h"
 
-#define MICROBIT_ID_KEY_VALUE 9501
-
-#define MICROBIT_KEY_VALUE_RX_LENGTH 16
-#define MICROBIT_KEY_VALUE_TX_LENGTH 16
+#define BLOCKLYTALKY_KV_KEY_LENGTH 14
+#define BLOCKLYTALKY_KV_VALUE_LENGTH 16
 
 // UUIDs for our service and characteristics
 extern const uint8_t  KeyValueServiceUUID[];
 extern const uint8_t  KeyValueTxCharacteristicUUID[];
 //extern const uint8_t  KeyValueRxCharacteristicUUID[];
+
+// 32 bytes
+struct KeyValueMessage {
+  char key[BLOCKLYTALKY_KV_KEY_LENGTH];
+  uint16_t type; // keep things aligned
+  uint8_t value[BLOCKLYTALKY_KV_VALUE_LENGTH];
+};
 
 class KeyValueService
 {
@@ -43,7 +48,7 @@ class KeyValueService
     BLEDevice &ble;
 
     // memory for buffers.
-    uint8_t txCharacteristicBuffer[MICROBIT_KEY_VALUE_TX_LENGTH];
+    KeyValueMessage txCharacteristicMessage;
     //uint8_t[MICROBIT_KEY_VALUE_RX_LENGTH]           rxCharacteristicBuffer;
 
     // Handles to access each characteristic when they are held by Soft Device.

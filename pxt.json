@@ -10,9 +10,7 @@
         "README.md",
         "KeyValueService.cpp",
         "KeyValueService.h",
-        "main.ts",
-        "enums.d.ts",
-        "shims.d.ts"
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"
