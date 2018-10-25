@@ -9,7 +9,7 @@ KeyValueService::KeyValueService(BLEDevice &_ble) :
 {
     // Create the data structures that represent each of our characteristics in Soft Device.
     GattCharacteristic  txCharacteristic(KeyValueTxCharacteristicUUID, (uint8_t *)&txCharacteristicMessage, 0,
-    sizeof(txCharacteristicMessage), GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_READ | GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_WRITE);
+    sizeof(txCharacteristicMessage), GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_READ | GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_NOTIFY);
 
     // Initialise our characteristic values.
     memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
