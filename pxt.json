@@ -1,6 +1,6 @@
 {
     "name": "BlockyTalky-BLE",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "A key-value pair Bluetooth service for BlockyTalky",
     "dependencies": {
         "core": "*",
@@ -28,6 +28,6 @@
             }
         }
     },
-    "public": false,
+    "public": true,
     "license": "MIT"
 }

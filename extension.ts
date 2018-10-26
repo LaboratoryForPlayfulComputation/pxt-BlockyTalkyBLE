@@ -85,10 +85,10 @@ namespace blockytalky {
     }
 
     /**
-     * Registers code to run when the blockytalky receives a number.
+     * Registers code to run when the BlockyTalky receives a number.
      */
     //% blockHandlerKey="blockytalkyreceived"
-    //% blockId=blockytalky_on_number block="on blockytalky received" blockGap=16
+    //% blockId=blockytalky_on_number block="on BlockyTalky received number" blockGap=16
     export function onReceivedNumber(cb: (key: string, value: number) => void) {
         control.onEvent(BLOCKYTALKY_KV_ID, BLOCKYTALKY_KV_RECEIVED_NUMBER, function () {
             const key = receivedKey();
@@ -104,9 +104,9 @@ namespace blockytalky {
     }
 
     /**
-     * Registers code to run when the blockytalky receives a string.
+     * Registers code to run when the BlockyTalky receives a string.
      */
-    //% blockId=blockytalky_on_string block="on blockytalky received" blockGap=16
+    //% blockId=blockytalky_on_string block="on BlockyTalky received string" blockGap=16
     export function onReceivedString(cb: (key: string, receivedString: string) => void) {
         control.onEvent(BLOCKYTALKY_KV_ID, BLOCKYTALKY_KV_RECEIVED_STRING, function () {
             const key = receivedKey();
