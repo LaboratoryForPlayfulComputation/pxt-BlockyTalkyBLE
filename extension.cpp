@@ -35,7 +35,9 @@ namespace blockytalky {
     String receivedString() {
         startBluetoothService();
         auto msg = _pService->receivedMessage();
-        return msg.type == BlockyTalkyMessageType::StringType ? mkString((char*)msg.value) : mkString(NULL);
+        return msg.type == BlockyTalkyMessageType::StringType 
+            ? mkString((char*)msg.value) 
+            : mkString(NULL);
     }
 
     //%

@@ -17,10 +17,10 @@ basic.forever(function () {
     basic.pause(2000);
 })
 blockytalky.onReceivedString(function (key, text) {
-    basic.showString(key + " " + text);
+    basic.showString("t." + key + "." + text);
     led.toggle(4, 0);
 })
 blockytalky.onReceivedNumber(function (key, n) {
-    basic.showString(key + " " + n);
+    basic.showString("n." + key + "." + n);
     led.toggle(4, 1);
 })
