@@ -18,6 +18,16 @@
     "testFiles": [
         "test.ts"
     ],
+    "yotta": {
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "whitelist": 0
+                }
+            }
+        }
+    },
     "public": false,
     "license": "MIT"
 }
