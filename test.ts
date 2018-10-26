@@ -9,10 +9,10 @@ let n = 0;
 basic.forever(function () {
     n++;
     led.toggle(0, 0);
-    blocklytalky.sendNumber("int " + n.toString(), n);
+    blocklytalky.sendNumber("i" + n.toString(), n);
     basic.pause(1000);
-    blocklytalky.sendNumber("double " + n.toString(), n * Math.PI);
+    blocklytalky.sendNumber("d" + n.toString(), n + 0.1);
     basic.pause(1000);
-    blocklytalky.sendString("string " + n.toString(), "value" + n);
+    blocklytalky.sendString("s" + n.toString(), "s" + n);
     basic.pause(1000);
 })
