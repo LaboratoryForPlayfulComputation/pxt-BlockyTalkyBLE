@@ -3,11 +3,11 @@
  */
 //% color=#007EF4 weight=95 icon="\uf294"
 namespace blockytalky {
-    const BLOCKLYTALKY_KV_ID = 9600;
-    const BLOCKLYTALKY_KV_RECEIVED_NUMBER = 1;
-    const BLOCKLYTALKY_KV_RECEIVED_STRING = 2;
-    const BLOCKLYTALKY_KV_KEY_LENGTH = 14;
-    const BLOCKLYTALKY_KV_VALUE_LENGTH = 16;
+    const BLOCKYTALKY_KV_ID = 9600;
+    const BLOCKYTALKY_KV_RECEIVED_NUMBER = 1;
+    const BLOCKYTALKY_KV_RECEIVED_STRING = 2;
+    const BLOCKYTALKY_KV_KEY_LENGTH = 14;
+    const BLOCKYTALKY_KV_VALUE_LENGTH = 16;
     
     /**
     * Starts a custom sensor service. The handler must call ``setSensorTemperature`` 
@@ -53,11 +53,11 @@ namespace blockytalky {
     }
 
     /**
-     * Send a number of Blockly Talky BLE
+     * Send a number to BlockyTalkyBLE peer
      * @param key 
      * @param value 
      */
-    //% blockid="blocklytalkey_sendnumber" block="blockytalky send number $key as $value"
+    //% blockid="blockytalky_sendnumber" block="BlockyTalky send number $key as $value"
     export function sendNumber(key: string, value: number) {
         if (value == value >> 0) {
             const buf = pins.createBuffer(4);
@@ -71,11 +71,11 @@ namespace blockytalky {
     }
 
     /**
-     * Send a number of Blockly Talky BLE
+     * Send a string to BlockyTalkyBLE peer
      * @param key 
      * @param value 
      */
-    //% blockid="blocklytalkey_sendnumber" block="blockytalky send string $key as $value"
+    //% blockid="blockytalky_sendnumber" block="BlockyTalky send string $key as $value"
     export function sendString(key: string, value: string) {
         const buf = pins.createBuffer(value.length + 1);
         for (let i = 0; i < value.length; ++i)
@@ -90,7 +90,7 @@ namespace blockytalky {
     //% blockHandlerKey="blockytalkyreceived"
     //% blockId=blockytalky_on_number block="on blockytalky received" blockGap=16
     export function onReceivedNumber(cb: (key: string, value: number) => void) {
-        control.onEvent(BLOCKLYTALKY_KV_ID, BLOCKLYTALKY_KV_RECEIVED_NUMBER, function () {
+        control.onEvent(BLOCKYTALKY_KV_ID, BLOCKYTALKY_KV_RECEIVED_NUMBER, function () {
             const key = receivedKey();
             const type = receivedType();
             const buf = receivedBuffer();
@@ -108,7 +108,7 @@ namespace blockytalky {
      */
     //% blockId=blockytalky_on_string block="on blockytalky received" blockGap=16
     export function onReceivedString(cb: (key: string, receivedString: string) => void) {
-        control.onEvent(BLOCKLYTALKY_KV_ID, BLOCKLYTALKY_KV_RECEIVED_STRING, function () {
+        control.onEvent(BLOCKYTALKY_KV_ID, BLOCKYTALKY_KV_RECEIVED_STRING, function () {
             const key = receivedKey();
             const value = receivedString();
             cb(key, value);
