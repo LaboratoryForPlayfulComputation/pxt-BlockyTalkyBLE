@@ -41,11 +41,11 @@ void KeyValueService::send(String key, int type, Buffer value) {
         // clear buffer
         memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
         // write key, last byte left and end-of-string marker
-        memcpy(&txCharacteristicMessage.key, key->data, min(BLOCKYTALKY_KV_KEY_LENGTH, key->length));
+        memcpy(&txCharacteristicMessage.key, PXT_BUFFER_DATA(key), min(BLOCKYTALKY_KV_KEY_LENGTH, key->length));
         // write data type
         txCharacteristicMessage.type = type;
         // write value
-        memcpy(&txCharacteristicMessage.value, value->data, min(BLOCKYTALKY_KV_VALUE_LENGTH, value->length));
+        memcpy(&txCharacteristicMessage.value, PXT_BUFFER_DATA(value), min(BLOCKYTALKY_KV_VALUE_LENGTH, value->length));
         // notify clients
         ble.gattServer().notify(txCharacteristicHandle,(uint8_t *)&txCharacteristicMessage, sizeof(txCharacteristicMessage));
     }
@@ -62,7 +62,7 @@ void KeyValueService::onDataWritten(const GattWriteCallbackParams *params)
         // clear message data
         memset(&rxCharacteristicMessage, 0, sizeof(rxCharacteristicMessage));
         // save data
-        memcpy(&rxCharacteristicMessage, params->data, params->len);
+        memcpy(&rxCharacteristicMessage, PXT_BUFFER_DATA(params), params->len);
         // notify DAL
         MicroBitEvent ev(BLOCKYTALKY_KV_ID, 
             rxCharacteristicMessage.type == BlockyTalkyMessageType::StringType

@@ -7,6 +7,11 @@
 #include "EventModel.h"
 #include "pxt.h"
 
+// v0 backward compat support
+#ifndef PXT_BUFFER_DATA
+#define PXT_BUFFER_DATA(buffer) buffer->payload
+#endif
+
 #define BLOCKYTALKY_KV_ID 9600
 #define BLOCKYTALKY_KV_RECEIVED_NUMBER 1
 #define BLOCKYTALKY_KV_RECEIVED_STRING 2
