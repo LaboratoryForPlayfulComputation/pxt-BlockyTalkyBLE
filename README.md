@@ -37,13 +37,17 @@ The ``value`` part of the message should be less than 11 character long
 
 ## Bluetooth Profile
 
-* Service UUID: 0b78ac2dfe3643ac32d0a29d8fbe05d6
-* TX Characteristic: 0b78ac2dfe3643ac32d0a29d8fbe05d7
-* RX Characteristic: 0b78ac2dfe3643ac32d0a29d8fbe05d8
+```
+const BLOCKY_TALKY_SERVICE = '0b78ac2d-fe36-43ac-32d0-a29d8fbe05d6';
+const TX_CHARACTERISTIC = '0b78ac2d-fe36-43ac-32d0-a29d8fbe05d7';
+const RX_CHARACTERISTIC = '0b78ac2d-fe36-43ac-32d0-a29d8fbe05d8';
+```
 
 ## Testing
 
-Try this glitch in a WebBluetooth enabled browser: https://microbit-blockytalky.glitch.me
+* Try this glitch in a WebBluetooth enabled browser: https://microbit-blockytalky.glitch.me
+* Use [chrome://bluetooth-internals](chrome://bluetooth-internals) to explore the GATT service
+* Use NRFConnect on iOS/Android
 
 ## License
 
@@ -54,3 +58,6 @@ MIT
 * for PXT/microbit
 (The metadata above is needed for package search.)
 
+```package
+BlockyTalky-BLE=github:LaboratoryForPlayfulComputation/pxt-BlockyTalkyBLE#master
+```
