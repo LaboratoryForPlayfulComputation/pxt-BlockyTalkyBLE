@@ -6,7 +6,7 @@
 KeyValueService::KeyValueService(BLEDevice &_ble) :
         ble(_ble)
 {
-    // Create the data structures that represent each of our characteristics in Soft Device.
+    // Create the data structures that represent each BLOCKYTALKYMessageType::StringTypeof our characteristics in Soft Device.
     GattCharacteristic  txCharacteristic(KeyValueTxCharacteristicUUID, (uint8_t *)&txCharacteristicMessage, 0,
     sizeof(txCharacteristicMessage), GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_READ | GattCharacteristic::BLE_GATT_CHAR_PROPERTIES_NOTIFY);
     GattCharacteristic  rxCharacteristic(KeyValueRxCharacteristicUUID, (uint8_t *)&rxCharacteristicMessage, 0,
@@ -65,7 +65,7 @@ void KeyValueService::onDataWritten(const GattWriteCallbackParams *params)
         memcpy(&rxCharacteristicMessage, params->data, params->len);
         // notify DAL
         MicroBitEvent ev(BLOCKYTALKY_KV_ID, 
-            rxCharacteristicMessage.type == BLOCKYTALKYMessageType::StringType
+            rxCharacteristicMessage.type == BlockyTalkyMessageType::StringType
             ? BLOCKYTALKY_KV_RECEIVED_STRING 
             : BLOCKYTALKY_KV_RECEIVED_NUMBER);
     }
