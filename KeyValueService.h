@@ -1,5 +1,5 @@
-#ifndef BLOCKLYTALKY_KEYVALUE_SERVICE_H
-#define BLOCKLYTALKY_KEYVALUE_SERVICE_H
+#ifndef BLOCKYTALKY_KEYVALUE_SERVICE_H
+#define BLOCKYTALKY_KEYVALUE_SERVICE_H
 
 #include "MicroBitConfig.h"
 #include "ble/BLE.h"
@@ -7,12 +7,12 @@
 #include "EventModel.h"
 #include "pxt.h"
 
-#define BLOCKLYTALKY_KV_ID 9600
-#define BLOCKLYTALKY_KV_RECEIVED_NUMBER 1
-#define BLOCKLYTALKY_KV_RECEIVED_STRING 2
+#define BLOCKYTALKY_KV_ID 9600
+#define BLOCKYTALKY_KV_RECEIVED_NUMBER 1
+#define BLOCKYTALKY_KV_RECEIVED_STRING 2
 
-#define BLOCKLYTALKY_KV_KEY_LENGTH 6
-#define BLOCKLYTALKY_KV_VALUE_LENGTH 12
+#define BLOCKYTALKY_KV_KEY_LENGTH 6
+#define BLOCKYTALKY_KV_VALUE_LENGTH 12
 
 // UUIDs for our service and characteristics
 extern const uint8_t  KeyValueServiceUUID[];
@@ -21,13 +21,13 @@ extern const uint8_t  KeyValueRxCharacteristicUUID[];
 
 // 20 bytes
 struct KeyValueMessage {
-  char key[BLOCKLYTALKY_KV_KEY_LENGTH + 1]; // 7
+  char key[BLOCKYTALKY_KV_KEY_LENGTH + 1]; // 7
   uint8_t type; // 1
-  uint8_t value[BLOCKLYTALKY_KV_VALUE_LENGTH]; // 12
+  uint8_t value[BLOCKYTALKY_KV_VALUE_LENGTH]; // 12
 };
 
 
-enum BlocklyTalkyMessageType {
+enum BlockyTalkyMessageType {
     //%
     Int32LE = 1,
     //%

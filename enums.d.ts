@@ -1,7 +1,7 @@
 // Auto-generated. Do not edit.
 
 
-    declare const enum BlocklyTalkyMessageType {
+    declare const enum BlockyTalkyMessageType {
     //%
     Int32LE = 1,
     //%

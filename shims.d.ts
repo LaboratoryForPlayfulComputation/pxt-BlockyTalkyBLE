@@ -1,5 +1,5 @@
 // Auto-generated. Do not edit.
-declare namespace blocklytalky {
+declare namespace blockytalky {
 }
 
 // Auto-generated. Do not edit. Really.

@@ -1,20 +1,20 @@
-# blocklytalkyble-dal
+# blockytalkyble-dal
 
-A key-value pair Bluetooth service for BlocklyTalky
+A key-value pair Bluetooth service for BlockyTalky
 
 ## Using this extension
 
-Click on the gearwheel, then **Extensions**, search for blocklytalky.
+Click on the gearwheel, then **Extensions**, search for blockytalky.
 
 ## Using the extension
 
 This extension uses Bluetooth Low Energy to communicate to other divices. You will need to pair the micro:bit
-to a device that supports the BlocklyTalky bluetooth profile.
+to a device that supports the BlockyTalky bluetooth profile.
 
 ### Sending Number
 
 ```blocks
-blocklytalky.sendNumber("temp", input.temperature())
+blockytalky.sendNumber("temp", input.temperature())
 ```
 
 ### ~ hint
@@ -26,7 +26,7 @@ The ``key`` part of the message should be less or equal than 6 character long
 ### Sending String
 
 ```blocks
-blocklytalky.sendString("marco", "polo")
+blockytalky.sendString("marco", "polo")
 ```
 
 ### ~ hint
@@ -45,7 +45,7 @@ The ``value`` part of the message should be less than 11 character long
 
 Try this glitch in a WebBluetooth enabled browser
 
-    https://microbit-blocklytalky.glitch.me
+    https://microbit-blockytalky.glitch.me
 
 
 ## License
