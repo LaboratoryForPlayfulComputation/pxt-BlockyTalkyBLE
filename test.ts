@@ -10,9 +10,9 @@ basic.forever(function () {
     n++;
     led.toggle(0, 0);
     blockytalky.sendNumber("i" + n.toString(), n);
-    basic.pause(1000);
-    blockytalky.sendNumber("d" + n.toString(), n + 0.1);
-    basic.pause(1000);
+    basic.pause(2000);
+    blockytalky.sendNumber("d" + n.toString(), n + 0.01);
+    basic.pause(2000);
     blockytalky.sendString("s" + n.toString(), "s" + n);
-    basic.pause(1000);
+    basic.pause(2000);
 })
