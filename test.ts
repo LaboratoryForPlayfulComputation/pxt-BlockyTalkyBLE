@@ -16,3 +16,11 @@ basic.forever(function () {
     blockytalky.sendString("s" + n.toString(), "s" + n);
     basic.pause(2000);
 })
+blockytalky.onReceivedString(function (key, text) {
+    basic.showString(key + " " + text);
+    led.toggle(4, 0);
+})
+blockytalky.onReceivedNumber(function (key, n) {
+    basic.showString(key + " " + n);
+    led.toggle(4, 1);
+})
