@@ -43,10 +43,7 @@ The ``value`` part of the message should be less than 11 character long
 
 ## Testing
 
-Try this glitch in a WebBluetooth enabled browser
-
-    https://microbit-blockytalky.glitch.me
-
+Try this glitch in a WebBluetooth enabled browser: https://microbit-blockytalky.glitch.me
 
 ## License
 
