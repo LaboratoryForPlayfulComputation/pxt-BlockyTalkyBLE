@@ -35,6 +35,27 @@ The ``value`` part of the message should be less than 11 character long
 
 ### ~
 
+### Receiving number
+
+Register an event handler to handler number messages. A number can be integer or double.
+
+```blocks
+blockytalky.onReceivedNumber(function (key, value) {
+	
+})
+```
+
+### Receiving string
+
+Register an event handler to handler string messages. A number can be integer or double.
+
+```blocks
+blockytalky.onReceivedString(function (key, receivedString) {
+	
+})
+```
+
+
 ## Bluetooth Profile
 
 ```
@@ -57,7 +78,3 @@ MIT
 
 * for PXT/microbit
 (The metadata above is needed for package search.)
-
-```package
-BlockyTalky-BLE=github:LaboratoryForPlayfulComputation/pxt-BlockyTalkyBLE#master
-```
