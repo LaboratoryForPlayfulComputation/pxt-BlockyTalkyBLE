@@ -57,7 +57,7 @@ namespace blockytalky {
      * @param key 
      * @param value 
      */
-    //% blockid="blockytalky_sendnumber" block="BlockyTalky send number $key as $value"
+    //% blockid="blockytalky_sendnumber" block="BlockyTalky send $key and numerical value $value"
     export function sendNumber(key: string, value: number) {
         if (value == value >> 0) {
             const buf = pins.createBuffer(4);
@@ -75,7 +75,7 @@ namespace blockytalky {
      * @param key 
      * @param value 
      */
-    //% blockid="blockytalky_sendnumber" block="BlockyTalky send string $key as $value"
+    //% blockid="blockytalky_sendnumber" block="BlockyTalky send $key with string value $value"
     export function sendString(key: string, value: string) {
         const buf = pins.createBuffer(value.length + 1);
         for (let i = 0; i < value.length; ++i)
@@ -88,7 +88,7 @@ namespace blockytalky {
      * Registers code to run when the BlockyTalky receives a number.
      */
     //% blockHandlerKey="blockytalkyreceived"
-    //% blockId=blockytalky_on_number block="on BlockyTalky received number" blockGap=16
+    //% blockId=blockytalky_on_number block="on BlockyTalky received key and number value" blockGap=16
     export function onReceivedNumber(cb: (key: string, value: number) => void) {
         control.onEvent(BLOCKYTALKY_KV_ID, BLOCKYTALKY_KV_RECEIVED_NUMBER, function () {
             const key = receivedKey();
@@ -106,7 +106,7 @@ namespace blockytalky {
     /**
      * Registers code to run when the BlockyTalky receives a string.
      */
-    //% blockId=blockytalky_on_string block="on BlockyTalky received string" blockGap=16
+    //% blockId=blockytalky_on_string block="on BlockyTalky received key and string value" blockGap=16
     export function onReceivedString(cb: (key: string, receivedString: string) => void) {
         control.onEvent(BLOCKYTALKY_KV_ID, BLOCKYTALKY_KV_RECEIVED_STRING, function () {
             const key = receivedKey();
