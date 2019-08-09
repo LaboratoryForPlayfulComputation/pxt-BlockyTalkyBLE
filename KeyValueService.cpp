@@ -41,11 +41,11 @@ void KeyValueService::send(String key, int type, Buffer value) {
         // clear buffer
         memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
         // write key, last byte left and end-of-string marker
-        memcpy(&txCharacteristicMessage.key, PXT_BUFFER_DATA(key), min(BLOCKYTALKY_KV_KEY_LENGTH, key->getUTF8Size()));
+        memcpy(&txCharacteristicMessage.key, PXT_BUFFER_DATA(key), min(BLOCKYTALKY_KV_KEY_LENGTH, PXT_BUFFER_LENGTH(key)));
         // write data type
         txCharacteristicMessage.type = type;
         // write value
-        memcpy(&txCharacteristicMessage.value, PXT_BUFFER_DATA(value), min(BLOCKYTALKY_KV_VALUE_LENGTH, value->getUTF8Size()));
+        memcpy(&txCharacteristicMessage.value, PXT_BUFFER_DATA(value), min(BLOCKYTALKY_KV_VALUE_LENGTH, PXT_BUFFER_LENGTH(value)));
         // notify clients
         ble.gattServer().notify(txCharacteristicHandle,(uint8_t *)&txCharacteristicMessage, sizeof(txCharacteristicMessage));
     }
