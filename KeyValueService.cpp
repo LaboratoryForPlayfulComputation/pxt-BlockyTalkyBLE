@@ -41,7 +41,7 @@ void KeyValueService::send(String key, int type, Buffer value) {
         // clear buffer
         memset(&txCharacteristicMessage, 0, sizeof(txCharacteristicMessage));
         // write key, last byte left and end-of-string marker
-        memcpy(&txCharacteristicMessage.key, key, min(BLOCKYTALKY_KV_KEY_LENGTH, key->ascii.length ));
+        memcpy(&txCharacteristicMessage.key, key->ascii.data, min(BLOCKYTALKY_KV_KEY_LENGTH, key->ascii.length ));
         // write data type
         txCharacteristicMessage.type = type;
         // write value
